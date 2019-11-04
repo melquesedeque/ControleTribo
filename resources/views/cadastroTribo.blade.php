@@ -28,7 +28,8 @@
     
     <div class="limiter">
         <div class="container-login100">
-            <form style="border:#ccc;" class="wrap-login100">
+            <form style="border:#ccc;" class="wrap-login100" method="post" action="{{ route('CadastroTribo') }}">
+                @csrf
                     <div class="container" style="margin-top:10px;">
                             <span class="login100-form-title" style="margin-top: -15%;">
                                 Controle da Tribo da Nação
@@ -48,7 +49,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="NomeTribo">Tribo</label>
-                                    <select class="form-control" id="NomeTribo" name="NomeTribo">
+                                    <select class="form-control" id="NomeTribo" name="nomeTribo">
                                         <option>-Selecione a Tribo-</option>
                                         <option>Aser</option>
                                         <option>Benjamin</option>
@@ -65,7 +66,7 @@
                                 <div class="form-group">
                                     <label for="DataTribo">Data da Tribo</label>
                                     <div class="input-group date">
-                                        <input type="date" class="form-control" id="DataTribo" name="DataTribo" maxlength="10">
+                                        <input type="date" class="form-control" id="DataTribo" name="dataTribo" maxlength="10">
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </div>
@@ -88,10 +89,18 @@
                             <div class='col-sm-6'>
                                 <div class="form-group">
                                     <label for="qtd">Quatidade de Pessoas</label>
-                                    <input type="number" class="form-control" id="qtd">
+                                    <input type="number" class="form-control" id="qtd" name="quantidadePessoal">
                                 </div>
                             </div>
                         </div>
+
+                        @if ($errors->all())
+                            @foreach ($errors->all() as $erro)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $erro }}
+                                </div>
+                            @endforeach
+                        @endif
 
                         <div class="row">
                             <div class="col-sm-12">
