@@ -16,7 +16,7 @@ class CreateTribosTable extends Migration
         Schema::create('tribos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('igreja');
-            $table->string('nomeTribo');
+            $table->string('nomeTribo')->default('Todas as Tribos');
             $table->date('dataTribo');
             $table->string('oferta');
             $table->string('quantidadePessoal');

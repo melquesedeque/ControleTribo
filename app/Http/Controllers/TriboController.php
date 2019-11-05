@@ -22,10 +22,6 @@ class TriboController extends Controller{
             return redirect()->back()->withInput()->withErrors('Selecione Uma Igreja');
         }
 
-        if($request->nomeTribo == '-Selecione a Tribo-'){
-            return redirect()->back()->withInput()->withErrors('Selecione a Tribo');
-        }
-
         $request->validate([
             'dataTribo'         => 'required',
             'oferta'            => 'required',
@@ -37,7 +33,6 @@ class TriboController extends Controller{
         //}
         $tribo = new Tribo();
         $tribo->igreja            = $request->igreja;
-        $tribo->nomeTribo         = $request->nomeTribo; 
         $tribo->dataTribo         = $request->dataTribo; 
         $tribo->oferta            = $request->oferta; 
         $tribo->quantidadePessoal = $request->quantidadePessoal;
