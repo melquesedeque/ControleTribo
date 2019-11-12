@@ -34,8 +34,8 @@
 
         <nav class="navbar fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">TRIBOS FINÂNCEIRO</a>
-            <a style="position: absolute; margin-left: 12%; font-size: large;" href="{{ route('telaConsultas') }}">Consultas</a>
-            <a style="position: absolute; margin-left: 18%; font-size: large;" href="{{ route('telaCadastro') }}">Cadastrar</a>
+            <a style="position: absolute; margin-left: 16%; font-size: large;" href="{{ route('telaConsultas') }}">Consultas</a>
+            <a style="position: absolute; margin-left: 23%; font-size: large;" href="{{ route('telaCadastro') }}">Cadastrar</a>
             <a class="nav-link" href="{{ route('deslogar') }}">Deslogar</a>
         </nav>
 

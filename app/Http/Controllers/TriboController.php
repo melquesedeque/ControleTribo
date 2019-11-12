@@ -46,7 +46,7 @@ class TriboController extends Controller{
         $triboResultado = Tribo::find($id);
 
         $dados = ['tribosResultados' => $triboResultado];
-
+        
         if(Auth::check() === true){
             return view('editarTribo' , $dados);
         }else{

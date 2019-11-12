@@ -5,8 +5,8 @@
 
         <nav class="navbar fixed-top navbar-light bg-light">
             <a class="navbar-brand" href="#">TRIBOS FINÂNCEIRO</a>
-            <a style="position: absolute; margin-left: 12%; font-size: large;" href="{{ route('telaConsultas') }}">Consultas</a>
-            <a style="position: absolute; margin-left: 18%; font-size: large;" href="{{ route('telaCadastro') }}">Cadastrar</a>
+            <a style="position: absolute; margin-left: 16%; font-size: large;" href="{{ route('telaConsultas') }}">Consultas</a>
+            <a style="position: absolute; margin-left: 23%; font-size: large;" href="{{ route('telaCadastro') }}">Cadastrar</a>
             <a class="nav-link" href="{{ route('deslogar') }}">Deslogar</a>
         </nav>
 
@@ -22,10 +22,10 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="igreja">Igreja</label>
-                                    <select class="form-control" id="igreja" name="igreja">
+                                    <select class="form-control" id="igreja" name="igreja" value="{{ $tribosResultados->igreja }}">
                                         <option>-Selecione a Igreja-</option>
-                                        <option>Atalaia</option>
-                                        <option>Pilar</option>
+                                        <option @if($tribosResultados->igreja == 'Atalaia') selected @endif>Atalaia</option>
+                                        <option @if($tribosResultados->igreja == 'Pilar') selected @endif>Pilar</option>
                                     </select>
                                 </div>    
                             </div>
@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     <label for="DataTribo">Data da Tribo</label>
                                     <div class="input-group date">
-                                        <input type="date" class="form-control" id="DataTribo" name="dataTribo" maxlength="10" value="{{$['dataTribo']}}">
+                                        <input type="date" class="form-control" id="DataTribo" name="dataTribo" maxlength="10" value="{{ $tribosResultados->dataTribo }}">
                                     </div>
                                 </div>
                             </div>
@@ -47,14 +47,14 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">$</span>
                                     </div>
-                                    <input type="text" class="form-control" name="oferta" aria-label="Dollar amount (with dot and two decimal places)">
+                                    <input type="text" class="form-control" name="oferta" aria-label="Dollar amount (with dot and two decimal places)" value="{{ $tribosResultados->oferta }}">
                                 </div>
                             </div>
 
                             <div class='col-sm-6'>
                                 <div class="form-group">
                                     <label for="qtd">Quatidade de Pessoas</label>
-                                    <input type="number" class="form-control" id="qtd" name="quantidadePessoal">
+                                    <input type="number" class="form-control" id="qtd" name="quantidadePessoal" value="{{ $tribosResultados->quantidadePessoal }}">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" style="float: right;">Cadastrar</button>
+                                <button type="submit" class="btn btn-primary" style="float: right;">Editar</button>
                             </div>
                         </div>
                     </div>
