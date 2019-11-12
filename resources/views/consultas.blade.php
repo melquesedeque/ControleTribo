@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 	<title>Consultas</title>
 	<meta charset="UTF-8">
@@ -71,7 +71,7 @@
                                     <td class="column4" style="text-align: center;">{{ $item->quantidadePessoal }}</td>
 
                                     <td class="column5" style="text-align: center;">
-                                        <form action="" method="get">
+                                        <form action="{{ route('telaEditar', ['idTribo' => $item->id]) }}" method="get">
                                             <button type="submit">Editar</button>
                                         </form>
                                         <form action="" method="get">

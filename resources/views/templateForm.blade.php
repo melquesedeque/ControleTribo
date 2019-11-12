@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 	<title>Tribos Financeiro</title>
 	<meta charset="UTF-8">

@@ -20,7 +20,7 @@ class ConsultarTriboController extends Controller{
     }
 
     public function pesquisarIgreja(Request $request){
-        $tribos = Tribo::where('igreja', $request->igreja);
+        $tribos = Tribo::where('igreja', $request->igreja)->get();
         return view('consultas', ['tribos' => $tribos]);
     }
 }

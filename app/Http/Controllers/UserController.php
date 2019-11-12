@@ -16,7 +16,7 @@ class UserController extends Controller{
     public function autenticarLogin(Request $request){
         
         if(Auth::attempt(['email' => $request->email, 'password' => $request->senha])){
-            return redirect()->route('telaCadastro');
+            return redirect()->route('telaConsultas');
         }else{
             return redirect()->back()->withInput()->withErrors('Dados Não Conferem!');
         }

@@ -41,4 +41,16 @@ class TriboController extends Controller{
         return redirect()->route('telaCadastro');
     }
     
+    public function telaEditar($id){
+
+        $triboResultado = Tribo::find($id);
+
+        $dados = ['tribosResultados' => $triboResultado];
+
+        if(Auth::check() === true){
+            return view('editarTribo' , $dados);
+        }else{
+            return redirect()->route('telaLogin');
+        }
+    }
 }
