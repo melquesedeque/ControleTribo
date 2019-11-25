@@ -74,7 +74,7 @@
                                         <form action="{{ route('telaEditar', ['idTribo' => $item->id]) }}" method="get">
                                             <button type="submit">Editar</button>
                                         </form>
-                                        <form action="" method="get">
+                                        <form action="{{ route('deletarTribo', ['idTribo' => $item->id]) }}" method="get">
                                             <button type="submit">Excluir</button>
                                         </form>
                                     </td>

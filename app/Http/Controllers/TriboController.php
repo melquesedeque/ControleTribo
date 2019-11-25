@@ -43,14 +43,38 @@ class TriboController extends Controller{
     
     public function telaEditar($id){
 
-        $triboResultado = Tribo::find($id);
-
-        $dados = ['tribosResultados' => $triboResultado];
-        
         if(Auth::check() === true){
+            $triboResultado = Tribo::find($id);
+            $dados = ['tribosResultados' => $triboResultado];
             return view('editarTribo' , $dados);
         }else{
             return redirect()->route('telaLogin');
         }
+    }
+
+    public function editarTribo(Request $request, $id){
+        if($request->igreja == '-Selecione a Igreja-'){
+            return redirect()->back()->withInput()->withErrors('Selecione Uma Igreja');
+        }
+
+        $request->validate([
+            'dataTribo'         => 'required',
+            'oferta'            => 'required',
+            'quantidadePessoal' => 'required|numeric'
+        ]);
+
+        Tribo::where('id', $id)->update([
+            'igreja'            => $request->igreja,
+            'dataTribo'         => $request->dataTribo,
+            'oferta'            => $request->oferta,
+            'quantidadePessoal' => $request->quantidadePessoal
+        ]);
+
+        return redirect()->route('telaConsultas');
+    }
+
+    public function deletarTribo($id){
+        Tribo::destroy($id);
+        return redirect()->route('telaConsultas');
     }
 }

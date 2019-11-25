@@ -12,7 +12,7 @@
 
         <div class="container-login100">
 
-            <form style="border:#ccc;" class="wrap-login100" method="post" action="">
+            <form style="border:#ccc;" class="wrap-login100" method="post" action="{{ route('editarTribo', ['idTribo' => $tribosResultados->id]) }}">
                 @csrf
                     <div class="container" style="margin-top:10px;">
                             <span class="login100-form-title" style="margin-top: -15%;">

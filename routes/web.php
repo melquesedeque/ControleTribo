@@ -7,8 +7,10 @@ Route::get('/deslogar', 'UserController@deslogar')->name('deslogar');
 
 // Tribo
 Route::get('/form-tribo', 'TriboController@telaCadastro')->name('telaCadastro');
-Route::post('/cadastrar-tribo', 'TriboController@cadastroTribo')->name('CadastroTribo');
-Route::get('/triboEditar/{idTribo}', 'TriboController@telaEditar')->name('telaEditar');
+Route::post('/CadastrarTribo', 'TriboController@cadastroTribo')->name('CadastroTribo');
+Route::get('/TelaEditar/{idTribo}', 'TriboController@telaEditar')->name('telaEditar');
+Route::post('/EditarTribo/{idTribo}', 'TriboController@editarTribo')->name('editarTribo');
+Route::get('/DeletarTribo/{idTribo}', 'TriboController@deletarTribo')->name('deletarTribo');
 
 // Consultas
 Route::get('/consultas', 'ConsultarTriboController@telaConsultas')->name('telaConsultas');
