@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller{
 
     public function telaLogin(){
-        return view('login');
+        if (Auth::check() == True) {
+            return redirect()->route('telaConsultas');
+        } else {
+            return view('login');
+        }
     }
 
     public function autenticarLogin(Request $request){

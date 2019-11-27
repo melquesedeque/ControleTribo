@@ -8,7 +8,7 @@
 					Sistema de Controle da Tribo da Nação
 				</span>
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="{{asset('assets/Login_v1/images/img-01.png')}}" alt="IMG">
+					<img src="{{asset('assets/Templete01/Login_v1/images/img-01.png')}}" alt="IMG">
 				</div>
 				
 				<form class="login100-form validate-form" action="{{ route('loginAutenticar') }}" method="post">

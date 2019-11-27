@@ -2,8 +2,8 @@
 
 // User
 Route::get('/', 'UserController@telaLogin')->name('telaLogin');
-Route::post('/autenticar-login', 'UserController@autenticarLogin')->name('loginAutenticar');
-Route::get('/deslogar', 'UserController@deslogar')->name('deslogar');
+Route::post('/Autenticar-login', 'UserController@autenticarLogin')->name('loginAutenticar');
+Route::get('/Deslogar', 'UserController@deslogar')->name('deslogar');
 
 // Tribo
 Route::get('/form-tribo', 'TriboController@telaCadastro')->name('telaCadastro');
@@ -13,5 +13,9 @@ Route::post('/EditarTribo/{idTribo}', 'TriboController@editarTribo')->name('edit
 Route::get('/DeletarTribo/{idTribo}', 'TriboController@deletarTribo')->name('deletarTribo');
 
 // Consultas
-Route::get('/consultas', 'ConsultarTriboController@telaConsultas')->name('telaConsultas');
-Route::get('/pesquisarIgreja', 'ConsultarTriboController@pesquisarIgreja')->name('pesquisarIgreja');
+Route::get('/Consultas', 'ConsultarTriboController@telaConsultas')->name('telaConsultas');
+Route::get('/PesquisarIgreja', 'ConsultarTriboController@pesquisarIgreja')->name('pesquisarIgreja');
+
+//Dashboard
+Route::get('/PainelControler', 'DashboardController@telaPainel')->name('telaPainel');
+Route::get('/Calcular', 'DashboardController@calcular')->name('calcular');

@@ -3,12 +3,23 @@
 
     <div class="limiter">
 
-        <nav class="navbar fixed-top navbar-light bg-light">
-            <a class="navbar-brand" href="#">TRIBOS FINÂNCEIRO</a>
-            <a style="position: absolute; margin-left: 16%; font-size: large;" href="{{ route('telaConsultas') }}">Consultas</a>
-            <a style="position: absolute; margin-left: 23%; font-size: large;" href="{{ route('telaCadastro') }}">Cadastrar</a>
-            <a class="nav-link" href="{{ route('deslogar') }}">Deslogar</a>
-        </nav>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">TRIBOS FINÂNCEIRO</a>
+    
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item {{ (Route::current()->getName() === 'telaConsultas' ? 'active' : '') }} "> <a class="nav-link" href="{{ route('telaConsultas') }}">Consultas</a> </li>
+                    <li class="nav-item {{ (Route::current()->getName() === 'telaCadastro'  ? 'active' : '') }} "> <a class="nav-link" href="{{ route('telaCadastro') }}">Cadastrar</a> </li>
+                    <li class="nav-item {{ (Route::current()->getName() === 'telaPainel'    ? 'active' : '') }} "> <a class="nav-link" href="{{ route('telaPainel') }}">Dashboard</a> </li>
+                </ul>
+                </div>
+            </nav>
+        </header>
 
         <div class="container-login100">
 
