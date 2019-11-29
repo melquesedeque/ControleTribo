@@ -22,52 +22,29 @@
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{ asset('assets/templeteDashboard/img/sidebar-1.jpg') }}">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
        <div class="logo">
          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           Creative Tim
+           Tribo Estatístico
          </a>
        </div>
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
-             <a class="nav-link" href="#">
+             <a class="nav-link" href="{{ route('telaPainel') }}">
                <i class="material-icons">dashboard</i>
                <p>Dashboard</p>
              </a>
            </li>
            <li class="nav-item ">
-             <a class="nav-link" href="#">
+             <a class="nav-link" href="{{ route('telaConsultas') }}">
                <i class="material-icons">person</i>
-               <p>User Profile</p>
+               <p>Consultar</p>
              </a>
            </li>
            <li class="nav-item ">
-             <a class="nav-link" href="#">
+             <a class="nav-link" href="{{ route('telaCadastro') }}">
                <i class="material-icons">content_paste</i>
-               <p>Table List</p>
-             </a>
-           </li>
-           <li class="nav-item ">
-             <a class="nav-link" href="#">
-               <i class="material-icons">library_books</i>
-               <p>Typography</p>
-             </a>
-           </li>
-           <li class="nav-item ">
-             <a class="nav-link" href="#">
-               <i class="material-icons">bubble_chart</i>
-               <p>Icons</p>
-             </a>
-           </li>
-           <li class="nav-item ">
-             <a class="nav-link" href="#">
-               <i class="material-icons">location_ons</i>
-               <p>Maps</p>
+               <p>Cadastro</p>
              </a>
            </li>
          </ul>
@@ -89,7 +66,7 @@
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
-                 <input type="text" value="" class="form-control" placeholder="Search...">
+                 <input type="text" value="" class="form-control" placeholder="Pesquisar...">
                  <button type="submit" class="btn btn-white btn-round btn-just-icon">
                    <i class="material-icons">search</i>
                    <div class="ripple-container"></div>
@@ -104,22 +81,6 @@
                      Stats
                    </p>
                  </a>
-               </li>
-               <li class="nav-item dropdown">
-                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="material-icons">notifications</i>
-                   <span class="notification">5</span>
-                   <p class="d-lg-none d-md-block">
-                     Some Actions
-                   </p>
-                 </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                   <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                   <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                   <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                   <a class="dropdown-item" href="#">Another Notification</a>
-                   <a class="dropdown-item" href="#">Another One</a>
-                 </div>
                </li>
                <li class="nav-item dropdown">
                  <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -219,7 +180,7 @@
                  </div>
                  <div class="card-footer">
                    <div class="stats">
-                     <i class="material-icons">access_time</i> updated 4 minutes ago
+                     <i class="material-icons">access_time</i> {{ date('M/Y') }}
                    </div>
                  </div>
                </div>
@@ -235,7 +196,7 @@
                  </div>
                  <div class="card-footer">
                    <div class="stats">
-                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                     <i class="material-icons">access_time</i> {{ date('M/Y') }}
                    </div>
                  </div>
                </div>
@@ -245,42 +206,25 @@
              <div class="col-lg-6 col-md-12">
                <div class="card">
                  <div class="card-header card-header-warning">
-                   <h4 class="card-title">Employees Stats</h4>
-                   <p class="card-category">New employees on 15th September, 2016</p>
+                   <h4 class="card-title">Entradas do Mês {{ date('M/Y') }}</h4>
                  </div>
                  <div class="card-body table-responsive">
                    <table class="table table-hover">
                      <thead class="text-warning">
-                       <th>ID</th>
-                       <th>Name</th>
-                       <th>Salary</th>
-                       <th>Country</th>
+                       <th>Igreja</th>
+                       <th>Data</th>
+                       <th>Oferta</th>
+                       <th>Quantidade</th>
                      </thead>
                      <tbody>
-                       <tr>
-                         <td>1</td>
-                         <td>Dakota Rice</td>
-                         <td>$36,738</td>
-                         <td>Niger</td>
-                       </tr>
-                       <tr>
-                         <td>2</td>
-                         <td>Minerva Hooper</td>
-                         <td>$23,789</td>
-                         <td>Curaçao</td>
-                       </tr>
-                       <tr>
-                         <td>3</td>
-                         <td>Sage Rodriguez</td>
-                         <td>$56,142</td>
-                         <td>Netherlands</td>
-                       </tr>
-                       <tr>
-                         <td>4</td>
-                         <td>Philip Chaney</td>
-                         <td>$38,735</td>
-                         <td>Korea, South</td>
-                       </tr>
+                       @foreach ($tribos as $tribo)
+                          <tr>
+                            <td>{{ $tribo->igreja }}</td>
+                            <td>{{ $tribo->dataTribo }}</td>
+                            <td>{{ $tribo->oferta }}</td>
+                            <td>{{ $tribo->quantidadePessoal }}</td>
+                          </tr>
+                       @endforeach
                      </tbody>
                    </table>
                  </div>
@@ -291,30 +235,6 @@
        </div>
        <footer class="footer">
          <div class="container-fluid">
-           <nav class="float-left">
-             <ul>
-               <li>
-                 <a href="https://www.creative-tim.com">
-                   Creative Tim
-                 </a>
-               </li>
-               <li>
-                 <a href="https://creative-tim.com/presentation">
-                   About Us
-                 </a>
-               </li>
-               <li>
-                 <a href="http://blog.creative-tim.com">
-                   Blog
-                 </a>
-               </li>
-               <li>
-                 <a href="https://www.creative-tim.com/license">
-                   Licenses
-                 </a>
-               </li>
-             </ul>
-           </nav>
            <div class="copyright float-right">
              &copy;
              <script>
@@ -332,7 +252,7 @@
          <i class="fa fa-cog fa-2x"> </i>
        </a>
        <ul class="dropdown-menu">
-         <li class="header-title"> Sidebar Filters</li>
+         <li class="header-title"> Configuração da Pagina</li>
          <li class="adjustments-line">
            <a href="javascript:void(0)" class="switch-trigger active-color">
              <div class="badge-colors ml-auto mr-auto">
@@ -346,7 +266,7 @@
              <div class="clearfix"></div>
            </a>
          </li>
-         <li class="header-title">Images</li>
+         <li class="header-title">Imagens</li>
          <li class="active">
            <a class="img-holder switch-trigger" href="javascript:void(0)">
              <img src="{{ asset('assets/templeteDashboard/img/sidebar-1.jpg') }}" alt="">
@@ -366,30 +286,6 @@
            <a class="img-holder switch-trigger" href="javascript:void(0)">
              <img src="{{ asset('assets/templeteDashboard/img/sidebar-4.jpg') }}" alt="">
            </a>
-         </li>
-         <li class="button-container">
-           <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
-         </li>
-         <!-- <li class="header-title">Want more components?</li>
-             <li class="button-container">
-                 <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                   Get the pro version
-                 </a>
-             </li> -->
-         <li class="button-container">
-           <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-             View Documentation
-           </a>
-         </li>
-         <li class="button-container github-star">
-           <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-         </li>
-         <li class="header-title">Thank you for 95 shares!</li>
-         <li class="button-container text-center">
-           <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-           <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-           <br>
-           <br>
          </li>
        </ul>
      </div>
@@ -446,7 +342,6 @@
 
    <!-- Linha -->
    <script>
-
      Highcharts.chart('containerLinha', {
         chart: {
           type: 'line'
@@ -458,7 +353,7 @@
           text: ''
         },
         xAxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+          categories: [{{$dados[0]}}, {{$dados[1]}}, {{$dados[2]}}, {{$dados[3]}}, {{$dados[4]}}]
         },
         yAxis: {
           title: {
@@ -475,10 +370,10 @@
         },
         series: [{
           name: 'Atalaia',
-          data: [6.6, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+          data: [{{ $ofertaAt[0] }}, 6.9, 9.5, 14.5, 18.6]
         }, {
           name: 'Pilar',
-          data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+          data: [3.9, 4.2, 5.7, 8.5, 11.9]
         }]
       });
    </script>
@@ -495,7 +390,7 @@
       }
     },
     title: {
-      text: ''
+      text: "Taxa de Frequencia {{ date('M/Y') }}"
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -513,7 +408,7 @@
     },
     series: [{
       type: 'pie',
-      name: 'Browser share',
+      name: 'QTD Pessoas',
       data: [
         ['ATALAIA', {{ $ofertaTotalAt }}],
         ['PILAR', {{ $ofertaTotalPl }}]
